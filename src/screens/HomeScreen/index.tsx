@@ -3,10 +3,17 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 //types
 import {AppNavigationProp} from '@navigation/types';
+//routes
 import {NAVIGATION_ROUTES} from '@navigation/navigationRoutes';
+//services
+import {useGetProductListQuery} from '../../redux/api/productApi';
 
 const HomeScreen = () => {
   const navigation = useNavigation<AppNavigationProp>();
+
+  const {isFetching} = useGetProductListQuery({});
+
+  console.log('IS FETCHING ---------------------------', isFetching);
 
   return (
     <View
