@@ -1,8 +1,51 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Wire Apps
 
-# Getting Started
+This project based on a technical Assesment.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Prerequisites
+
+- [Node.js > 18](https://nodejs.org) and npm (Recommended: Use [nvm](https://github.com/nvm-sh/nvm))
+- [Watchman](https://facebook.github.io/watchman)
+- [Xcode 15](https://developer.apple.com/xcode)
+- [Cocoapods 1.15.0](https://cocoapods.org)
+- [JDK > 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [Android Studio and Android SDK](https://developer.android.com/studio)
+
+## Base dependencies
+
+- [react-navigation](https://reactnavigation.org/) navigation library.
+- [@reduxjs/toolkit](https://redux-toolkit.js.org/) for state management.
+- [react-redux](https://react-redux.js.org/) react binding library for redux.
+- [redux-logger](https://www.npmjs.com/package/redux-logger) as redux logger.
+- [react-native-paper](https://reactnativepaper.com/) component library.
+- [twrnc](https://www.npmjs.com/package/twrnc) tailwindcss styling library.
+
+## Folder structure
+
+- `src`: This folder is the main container of all the code inside your application.
+  - `app`: This folder contains entry file and configurations.
+  - `assets`: Asset folder to store all images, icons, etc.
+  - `components`: Folder to store any common component through app follows ATOMIC design pattern.
+    - `atoms`
+    - `molecules`
+    - `organisms`
+  - `models`: Folder to store any kind of constant that you have.
+  - `navigation`: Folder to store the navigators.
+  - `redux`: This folder should have all your reducers, and expose the combined result using its `index.js`
+  - `screens`: Folder that contains all your application screens/features.
+    - `Screen`: Each screen should be stored inside its folder.
+  - `selectors`: Folder to store your selectors for each reducer.
+  - `storage`: Folder that contains the application storage logic.
+  - `store`: Folder to put all redux middlewares and the store.
+  - `index.js`: Entry point of your application as per React-Native standards.
+
+## Screens
+
+#### Home screen
+
+#### Product Detail screen
+
+#### Cart List screen
 
 ## Step 1: Start the Metro Server
 
@@ -45,35 +88,3 @@ yarn ios
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
