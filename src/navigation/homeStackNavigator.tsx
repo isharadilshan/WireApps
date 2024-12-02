@@ -5,7 +5,7 @@ import HomeScreen from '@screens/HomeScreen';
 import ProductDetailScreen from '@screens/ProductDetailScreen';
 import ProductCartScreen from '@screens/ProductCartScreen';
 //components
-import {CartButton} from '@components/atoms';
+import {CartButton} from '@components/molecules';
 //routes
 import {NAVIGATION_ROUTES} from './navigationRoutes';
 

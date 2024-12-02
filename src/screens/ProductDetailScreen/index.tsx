@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
-import {View, Text, Image, ScrollView, Button} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import {RouteProp, useNavigation} from '@react-navigation/native';
 import tw from 'twrnc';
+//components
+import {ContainedButton} from '@components/molecules';
 //types
 import {AppParamList} from '@navigation/types/ParamList';
 import {AppNavigationProp} from '@navigation/types';
@@ -68,7 +70,7 @@ const ProductDetailScreen = ({route}: Props) => {
           Price: {price?.currency} {price?.amount}
         </Text>
         <Text style={tw`text-lg font-bold text-[#414656]`}>
-          Sizes: <Text style={tw`text-cyan-600`}>{sizes.join(', ')}</Text>
+          Sizes: <Text style={tw`text-cyan-600`}>{sizes?.join(', ')}</Text>
         </Text>
         <Text
           style={tw`text-lg font-bold ${
@@ -82,13 +84,13 @@ const ProductDetailScreen = ({route}: Props) => {
         <Text>
           Description: <Text>{description}</Text>
         </Text>
-        <View>
-          <Button
-            title="Add to Cart"
-            color="#007BFF"
-            onPress={() => handleOnPressAddCart(route?.params?.product)}
+        {stockStatus === 'IN STOCK' ? (
+          <ContainedButton
+            buttonText="Add to Cart"
+            onPressButton={() => handleOnPressAddCart(route?.params?.product)}
+            customContainerStyle={tw`mt-12 mx-3`}
           />
-        </View>
+        ) : null}
       </View>
     </ScrollView>
   );

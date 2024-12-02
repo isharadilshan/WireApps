@@ -2,7 +2,7 @@ import {View, FlatList} from 'react-native';
 import React from 'react';
 import tw from 'twrnc';
 //components
-import {EmptyListPlaceholder} from '@components/molecules';
+import {ContainedButton, EmptyListPlaceholder} from '@components/molecules';
 import {CartCard} from '@components/organisms';
 //redux
 import {useAppDispatch, useAppSelector} from '@redux/store/hooks';
@@ -61,8 +61,17 @@ const ProductCartScreen = () => {
         ListEmptyComponent={renderCartEmptyPlaceholder}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`flex-1`}
+        contentContainerStyle={
+          productCartList?.length === 0 ? tw`flex-1` : tw`pb-12`
+        }
       />
+      {productCartList?.length !== 0 ? (
+        <ContainedButton
+          buttonText="Check Out"
+          onPressButton={() => {}}
+          customContainerStyle={tw`absolute bottom-8 left-0 right-0 mx-3`}
+        />
+      ) : null}
     </View>
   );
 };
