@@ -23,6 +23,7 @@
     "paths": {
       /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
       "@components/*": ["src/components/*"],
+      "@models/*": ["src/models/*"],
       "@navigation/*": ["src/navigation/*"],
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/screens/*"],

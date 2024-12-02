@@ -1,50 +1,51 @@
-import {View, Text, FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import tw from 'twrnc';
+//components
+import {Loader} from '@components/atoms';
+import {ProductCard} from '@components/organisms';
 //types
 import {AppNavigationProp} from '@navigation/types';
+import {IProduct} from '@models/product';
 //routes
 import {NAVIGATION_ROUTES} from '@navigation/navigationRoutes';
 //services
-import {useGetProductListQuery} from '../../redux/api/productApi';
-import {ProductCard} from '@components/organisms';
+import {useGetProductListQuery} from '@redux/api/productApi';
 
 const HomeScreen = () => {
   const navigation = useNavigation<AppNavigationProp>();
 
-  const {isFetching} = useGetProductListQuery({});
+  const {data: productList, isFetching} = useGetProductListQuery({});
 
-  console.log('IS FETCHING ---------------------------', isFetching);
+  const renderProductItem = ({item}: {item: IProduct}) => {
+    return (
+      <ProductCard
+        product={item}
+        onPressProduct={() => handleOnPressProduct(item)}
+      />
+    );
+  };
 
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ];
-
-  const handleOnPressProduct = () => {
-    navigation.navigate(NAVIGATION_ROUTES.PRODUCT_DETAIL_SCREEN);
+  const handleOnPressProduct = (product: IProduct) => {
+    navigation.navigate(NAVIGATION_ROUTES.PRODUCT_DETAIL_SCREEN, {
+      product: product,
+    });
   };
 
   return (
-    <View style={tw`flex-1 bg-blue-500`}>
-      <FlatList
-        data={DATA}
-        renderItem={({item}) => (
-          <ProductCard product={{}} onPressProduct={handleOnPressProduct} />
-        )}
-        keyExtractor={item => item.id}
-      />
+    <View style={tw`flex-1 px-4 bg-[#0E1626]`}>
+      {isFetching ? (
+        <Loader />
+      ) : (
+        <FlatList
+          data={productList?.data ?? []}
+          renderItem={renderProductItem}
+          keyExtractor={item => item.id}
+          contentContainerStyle={tw`pb-10`}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </View>
   );
 };
