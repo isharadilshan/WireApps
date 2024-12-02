@@ -1,20 +1,22 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ScrollView, Button} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-const ProductDetailScreen = ({
-  sku = '1210',
-  name = 'Nike Air Relentless 4 Mens Running Shoes',
-  brand = 'Nike',
-  image = 'https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/media/7e386191b2ee40b290886a05d3e10e24_nike-air-relentless-a.jpg',
-  price = '45.00',
-  currency = 'GBP',
-  sizes = ['8', '9', '10', '11'],
-  stockStatus = 'IN STOCK',
-  color = 'blue',
-  description = 'Hit the tracks in these Nike Air Relentless 4 featuring flexible forefoot sole and Reslon midsole underfoot cushioning for superior comfort at each step. The ridged outsole ensures excellent traction while the cushioned ankle collar and the anatomically shaped insole guarantee great support for the whole foot. The mesh upper panels provide breathability and airflow within the shoe.',
-}) => {
+const ProductCard = ({product, onPressProduct}) => {
+  const {
+    sku = '1210',
+    name = 'Nike Air Relentless 4 Mens Running Shoes',
+    brand = 'Nike',
+    image = 'https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/media/7e386191b2ee40b290886a05d3e10e24_nike-air-relentless-a.jpg',
+    price = '45.00',
+    currency = 'GBP',
+    sizes = ['8', '9', '10', '11'],
+    stockStatus = 'IN STOCK',
+    color = 'blue',
+    description = 'Hit the tracks in these Nike Air Relentless 4 featuring flexible forefoot sole and Reslon midsole underfoot cushioning for superior comfort at each step. The ridged outsole ensures excellent traction while the cushioned ankle collar and the anatomically shaped insole guarantee great support for the whole foot. The mesh upper panels provide breathability and airflow within the shoe.',
+  } = product;
+
   return (
-    <ScrollView style={styles.container}>
+    <TouchableOpacity style={styles.card} onPress={onPressProduct}>
       {/* Product Image */}
       <Image source={{uri: image}} style={styles.image} />
       <View style={styles.content}>
@@ -38,7 +40,7 @@ const ProductDetailScreen = ({
         <Text
           style={[
             styles.stockStatus,
-            {color: stockStatus === 'IN STOCK' ? 'green' : 'red'},
+            {color: stockStatus === 'In Stock' ? 'green' : 'red'},
           ]}>
           {stockStatus}
         </Text>
@@ -50,68 +52,67 @@ const ProductDetailScreen = ({
         <Text style={styles.label}>
           Description: <Text style={styles.description}>{description}</Text>
         </Text>
-        {/* Purchase Button */}
-        <View style={styles.buttonContainer}>
-          <Button title="Add to Cart" color="#007BFF" onPress={() => {}} />
-        </View>
       </View>
-    </ScrollView>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  card: {
+    flexDirection: 'row',
     backgroundColor: '#fff',
+    margin: 10,
+    borderRadius: 8,
+    overflow: 'hidden',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 4,
   },
   image: {
-    width: '100%',
-    height: 300,
+    width: 100,
+    height: 100,
     resizeMode: 'cover',
   },
   content: {
-    padding: 15,
+    flex: 1,
+    padding: 10,
   },
   name: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   brand: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#555',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   label: {
     fontSize: 14,
     color: '#555',
-    marginVertical: 5,
   },
   value: {
     fontWeight: 'bold',
     color: '#333',
   },
   price: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#007BFF',
-    marginVertical: 10,
+    marginVertical: 5,
   },
   stockStatus: {
-    fontSize: 16,
-    marginVertical: 10,
+    fontSize: 14,
+    marginVertical: 5,
     fontWeight: 'bold',
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#777',
-    marginTop: 10,
-    lineHeight: 20,
-  },
-  buttonContainer: {
-    marginTop: 20,
   },
 });
 
-export default ProductDetailScreen;
+export default ProductCard;

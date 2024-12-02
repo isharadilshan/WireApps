@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 const HomeStackNavigator = () => (
   <Stack.Navigator initialRouteName={NAVIGATION_ROUTES.HOME_SCREEN}>
     <Stack.Screen
-      options={{header: () => null}}
+      options={{headerRight: () => null}}
       name={NAVIGATION_ROUTES.HOME_SCREEN}
       component={HomeScreen}
     />
