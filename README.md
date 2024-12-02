@@ -1,4 +1,4 @@
-# Wire Apps
+![Simulator Screenshot - iPhone 16 Pro - 2024-12-02 at 23 24 18](https://github.com/user-attachments/assets/73359f96-0ee2-4766-9378-3e668f04d560)# Wire Apps
 
 This project based on a technical Assesment.
 
@@ -42,10 +42,16 @@ This project based on a technical Assesment.
 ## Screens
 
 #### Home screen
+![Simulator Screenshot - iPhone 16 Pro - 2024-12-02 at 23 24 18](https://github.com/user-attachments/assets/30f1c03f-09eb-4920-8b18-dd918f8587de)
+
 
 #### Product Detail screen
+![Simulator Screenshot - iPhone 16 Pro - 2024-12-03 at 00 08 58](https://github.com/user-attachments/assets/11df63c1-4f1c-4591-b430-8a21f35dc830)
+
 
 #### Cart List screen
+![Simulator Screenshot - iPhone 16 Pro - 2024-12-03 at 00 09 34](https://github.com/user-attachments/assets/89302fb9-aa7b-478a-8b21-7a9cc320c6b7)
+
 
 ## Step 1: Start the Metro Server
 
