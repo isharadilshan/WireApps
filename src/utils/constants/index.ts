@@ -3,4 +3,10 @@ const API_ENDPOINTS = {
   PRODUCT_LIST: '/api.themeshplatform.com/products.json',
 };
 
-export {API_ENDPOINTS};
+const INFO_TEXT = {
+  EMPTY_CART_LIST_TITLE: 'No Items Found',
+  EMPTY_CART_LIST_DESCRIPTION:
+    'Your cart is currently empty. Please add some items!',
+};
+
+export {API_ENDPOINTS, INFO_TEXT};

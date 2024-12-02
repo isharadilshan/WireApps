@@ -12,6 +12,7 @@ type IProduct = {
   stockStatus: string;
   colour: string;
   description: string;
+  quantity?: number;
 };
 
 export type {IProduct};

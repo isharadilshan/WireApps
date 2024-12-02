@@ -4,14 +4,12 @@ import {RouteProp, useNavigation} from '@react-navigation/native';
 import tw from 'twrnc';
 //types
 import {AppParamList} from '@navigation/types/ParamList';
-//routes
-import {NAVIGATION_ROUTES} from '@navigation/navigationRoutes';
 import {AppNavigationProp} from '@navigation/types';
+//redux
+import {useAppDispatch, useAppSelector} from '@redux/store/hooks';
+import {updateProductCart} from '@redux/slices/productSlice';
 
-type ProductDetailScreenProps = RouteProp<
-  AppParamList,
-  NAVIGATION_ROUTES.PRODUCT_DETAIL_SCREEN
->;
+type ProductDetailScreenProps = RouteProp<AppParamList, 'ProductDetailScreen'>;
 type Props = {
   route?: ProductDetailScreenProps;
 };
@@ -30,10 +28,34 @@ const ProductDetailScreen = ({route}: Props) => {
   } = route?.params?.product ?? {};
 
   const navigation = useNavigation<AppNavigationProp>();
+  const dispatch = useAppDispatch();
+  const productCartList = useAppSelector(
+    state => state.product.productCartList,
+  );
 
   useEffect(() => {
     navigation.setOptions({title: name ?? ''});
   }, [name, navigation]);
+
+  const handleOnPressAddCart = (product: any) => {
+    const existingProduct = productCartList.find(
+      item => item.id === product?.id,
+    );
+
+    let updatedProductArr;
+
+    if (existingProduct) {
+      // If product exists, increment the quantity
+      updatedProductArr = productCartList.map(item =>
+        item.id === product?.id ? {...item, quantity: item.quantity + 1} : item,
+      );
+    } else {
+      // If product doesn't exist, add it with an initial quantity of 1
+      updatedProductArr = [...productCartList, {...product, quantity: 1}];
+    }
+
+    dispatch(updateProductCart(updatedProductArr));
+  };
 
   return (
     <ScrollView style={tw`flex-1 bg-white`}>
@@ -61,7 +83,11 @@ const ProductDetailScreen = ({route}: Props) => {
           Description: <Text>{description}</Text>
         </Text>
         <View>
-          <Button title="Add to Cart" color="#007BFF" onPress={() => {}} />
+          <Button
+            title="Add to Cart"
+            color="#007BFF"
+            onPress={() => handleOnPressAddCart(route?.params?.product)}
+          />
         </View>
       </View>
     </ScrollView>
