@@ -3,7 +3,7 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import tw from 'twrnc';
 //redux
-import {useAppSelector} from '@redux/store/hooks';
+import {useAppSelector} from '../../../reduxstore/store/hooks';
 //routes
 import {NAVIGATION_ROUTES} from '@navigation/navigationRoutes';
 //types

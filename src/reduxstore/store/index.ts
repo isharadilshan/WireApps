@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 //Base API
 import {baseApi, middleware} from '../api/baseApi';
 //reducers
-import {productReducer} from '@redux/slices';
+import {productReducer} from '../slices';
 
 const isDevMode = process.env.NODE_ENV === 'development';
 

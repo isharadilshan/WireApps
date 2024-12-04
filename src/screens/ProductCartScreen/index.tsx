@@ -5,8 +5,8 @@ import tw from 'twrnc';
 import {ContainedButton, EmptyListPlaceholder} from '@components/molecules';
 import {CartCard} from '@components/organisms';
 //redux
-import {useAppDispatch, useAppSelector} from '@redux/store/hooks';
-import {updateProductCart} from '@redux/slices/productSlice';
+import {useAppDispatch, useAppSelector} from '../../reduxstore/store/hooks';
+import {updateProductCart} from '../../reduxstore/slices/productSlice';
 //types
 import {IProduct} from '@models/product';
 //constants

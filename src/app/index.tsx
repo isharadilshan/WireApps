@@ -3,7 +3,7 @@ import type {ReactNode} from 'react';
 import {PaperProvider} from 'react-native-paper';
 //redux
 import {Provider} from 'react-redux';
-import {store} from '../redux/store';
+import {store} from '../reduxstore/store';
 //navigator
 import Navigator from '../navigation';
 

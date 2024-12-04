@@ -8,8 +8,8 @@ import {ContainedButton} from '@components/molecules';
 import {AppParamList} from '@navigation/types/ParamList';
 import {AppNavigationProp} from '@navigation/types';
 //redux
-import {useAppDispatch, useAppSelector} from '@redux/store/hooks';
-import {updateProductCart} from '@redux/slices/productSlice';
+import {useAppDispatch, useAppSelector} from '../../reduxstore/store/hooks';
+import {updateProductCart} from '../../reduxstore/slices/productSlice';
 
 type ProductDetailScreenProps = RouteProp<AppParamList, 'ProductDetailScreen'>;
 type Props = {
