@@ -11,7 +11,7 @@ import {IProduct} from '@models/product';
 //routes
 import {NAVIGATION_ROUTES} from '@navigation/navigationRoutes';
 //services
-import {useGetProductListQuery} from '@redux/api/productApi';
+import {useGetProductListQuery} from '../../reduxstore/api/productApi';
 
 const HomeScreen = () => {
   const navigation = useNavigation<AppNavigationProp>();
